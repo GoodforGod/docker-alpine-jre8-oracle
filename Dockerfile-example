@@ -1,0 +1,9 @@
+FROM openjdk:8-jdk-alpine
+
+ENV JAR helloworld.jar
+
+VOLUME /tmp/logs
+
+COPY $JAR_APP /
+
+ENTRYPOINT ["java", "-jar", "/helloworld.jar"]
