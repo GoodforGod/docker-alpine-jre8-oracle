@@ -1,27 +1,25 @@
 #!/bin/bash
 
-dockerfile_name=Dockerfile
-cont_name=helloworld
-cont_image=helloworld
-cont_net=helloworld-net
+DOCKERFILE=Dockerfile
+CONT_NAME=helloworld
+IMAGE_NAME=helloworld
 
-cont_id=$(sudo docker ps -a -q --filter ancestor=$cont_name)
+CONT_ID=$(sudo docker ps -a -q --filter ancestor=$CONT_NAME)
 
-if [ -z "$cont_id" ]
+if [ -z "$CONT_ID" ]
 then
     echo 'Container is not exist'
 
 else
-    echo "[Removing] container ID - $cont_id"
+    echo "[Removing] container with ID - $CONT_ID"
 
-    sudo docker stop $cont_id
-    sudo docker rm $cont_id
-    sudo docker rmi $cont_image
+    sudo docker stop $CONT_ID
+    sudo docker rm $CONT_ID
+    sudo docker rmi $IMAGE_NAME
 fi
 
 echo '[Redeploying]'
 
-sudo docker build --tag=$cont_image - < $dockerfile_name
-sudo docker run -d --name $cont_name -p 8080:8080 --network=$cont_net $cont_image
-clear
+sudo docker build --tag=$IMAGE_NAME - < $DOCKERFILE
+sudo docker run -d --name $CONT_NAME -p 8080:8080 $IMAGE_NAME
 sudo docker ps
