@@ -1,11 +1,10 @@
 # Docker Alpine Oracle JRE 8
 Docker Alpine image with cleaned Oracle JRE 8 Update 172 (size 120MB)
 
-## Licence
 You must accept the [Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html) to use this image.
 
 ## Image
-Image uses [frol](https://github.com/frol/docker-alpine-glibc) Alpine image with glibc as a base image.
+Image uses [frol](https://github.com/frol/docker-alpine-glibc) Alpine (~only 12MB size) image with glibc as a base image.
 
 And contains cleaned [Oracle JRE 1.8.172](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version without *desktop, sources* and other unnecessary stuff except JVM. So image have all *JVM* parts to run *Java applications* in Docker containers.
 
