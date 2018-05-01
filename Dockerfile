@@ -1,5 +1,13 @@
 FROM frolvlad/alpine-glibc:alpine-3.7
 
+###### DISCLAIMER ######
+#
+# You must accept the Oracle Binary Code License Agreement for Java SE to use this image.
+#
+# Link to License: http://www.oracle.com/technetwork/java/javase/terms/license/index.html
+#
+###### DISCLAIMER ######
+
 # Set java enviroment
 ENV LANG=C.UTF-8 \ 
 	JAVA_VERSION=8 \
@@ -12,8 +20,8 @@ ENV JAVA_HOME="/opt/java/${JAVA_TYPE}1.${JAVA_VERSION}.0_${JAVA_UPDATE}" \
 	JAVA_TAR="${JAVA_TYPE}-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz"
 
 # Download oracle jre -> extract it -> add app user & group -> cleanup
-# You can use USER 'app' as a start one
-RUN cd /tmp \
+# You can use USER 'app' for you app
+RUN cd "/tmp" \
 	&& apk add --no-cache --virtual=build-dependencies wget ca-certificates \
 	&& mkdir -p $JAVA_HOME \
 	&& wget --header "Cookie: oraclelicense=accept-securebackup-cookie;" \
