@@ -13,6 +13,10 @@ Image contains only Java Runtime Environment, so you must have compiled Java app
 ## Usage
 Image have docker *USER* named **app** so you can use it for your application.
 
-Check [example](https://github.com/GoodforGod/docker-alpine-jre8-oracle/tree/master/example) folder for *Dockerfile* example of using image.
+Just add code below in your *Dockerfile* to use start your application as a user *app*
+```
+USER app
+```
 
+Check [example](https://github.com/GoodforGod/docker-alpine-jre8-oracle/tree/master/example) folder for *Dockerfile* example of image usage.
 
