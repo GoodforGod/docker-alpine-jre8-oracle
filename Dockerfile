@@ -12,6 +12,7 @@ ENV JAVA_HOME="/opt/java/${JAVA_TYPE}1.${JAVA_VERSION}.0_${JAVA_UPDATE}" \
 	JAVA_TAR="${JAVA_TYPE}-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz"
 
 # Download oracle jre -> extract it -> add app user & group -> cleanup
+# You can use USER 'app' as a start one
 RUN cd /tmp \
 	&& apk add --no-cache --virtual=build-dependencies wget ca-certificates \
 	&& mkdir -p $JAVA_HOME \
